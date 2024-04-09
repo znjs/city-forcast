@@ -30,7 +30,7 @@ export const PanelOne = () => {
         </div>
         <h1 className="text-lg">Sample Stack</h1>
       </div>
-      <Separator />
+      <Separator className="bg-white/30" />
       <div className="mb-2">
         <Button
           variant={"ghost"}
@@ -82,22 +82,25 @@ export const PanelOne = () => {
 
 function StackItem({ id }: { id: number }) {
   return (
-    <div className="px-4 py-2 flex justify-between gap-2">
-      <Checkbox className="m-0 border-white" id={String(id)} />
-      <label className="grow" htmlFor={String(id)}>
-        <div className="flex gap-2">
-          <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
-            <ArrowUp size={10} />{" "}
-            <span className="uppercase text-xs">F'cast stab.</span>
-          </Badge>
-          <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
-            <ArrowUp size={10} />{" "}
-            <span className="uppercase text-xs">F'cast stab.</span>
-          </Badge>
-        </div>
-        <p>Sample Stack</p>
-      </label>
-      <MailPlus size={16} />
-    </div>
+    <>
+      <div className="px-4 py-2 flex justify-between gap-2">
+        <Checkbox className="m-0 border-white" id={String(id)} />
+        <label className="grow" htmlFor={String(id)}>
+          <div className="flex gap-2">
+            <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
+              <ArrowUp size={10} />{" "}
+              <span className="uppercase text-xs">F'cast stab.</span>
+            </Badge>
+            <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
+              <ArrowUp size={10} />{" "}
+              <span className="uppercase text-xs">F'cast stab.</span>
+            </Badge>
+          </div>
+          <p>Sample Stack</p>
+        </label>
+        <MailPlus size={16} />
+      </div>
+      <Separator className="bg-white/30" />
+    </>
   );
 }
