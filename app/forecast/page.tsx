@@ -20,12 +20,14 @@ export default function Forecast() {
           defaultSize={25}
           maxSize={30}
           collapsedSize={0}
-          className={"flex flex-col grow " + (isCollapsed ? "hidden" : "")}
+          className={
+            "flex flex-col max-w-[420px] grow " + (isCollapsed ? "hidden" : "")
+          }
         >
           <PanelOne />
         </ResizablePanel>
         <ResizableHandle withHandle />
-        <ResizablePanel className="relative flex flex-col grow">
+        <ResizablePanel minSize={70} className="relative flex flex-col grow">
           <Button
             className="absolute top-4 left-0 bg-[#66FFE1]/60 hover:bg-[#66FFE1]/75 p-1 text-black rounded-none font-bold"
             onClick={() => setIsCollapsed((prev) => !prev)}

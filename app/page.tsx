@@ -1,13 +1,14 @@
 "use client";
 
 import { CityCard } from "@/components/CityCard";
+import { Map } from "@/components/map/Map";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="relative">
-      <div className="absolute top-0 left-0 max-w-[100%]">
+      <div className="absolute backdrop-blur-sm z-[9999] top-0 left-0 max-w-[100%]">
         <div className="p-12">
           <div className="flex text-white items-center gap-4 mb-8">
             <h1 className="text-3xl">Hello User,</h1>
@@ -26,6 +27,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Map />
     </div>
   );
 }

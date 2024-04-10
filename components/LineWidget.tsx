@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import {
   Chart as ChartJS,
@@ -23,6 +25,7 @@ ChartJS.register(
 
 export const options = {
   responsive: true,
+  tension: 0.2,
   plugins: {
     legend: {
       position: "top" as const,
