@@ -9,6 +9,39 @@ const MapWithNoSSR = dynamic(() => import("../components/map/Map"), {
   ssr: false,
 });
 
+const cityCardData = [
+  {
+    city: "Bangalore",
+    absolute_value: 45.5,
+    relative_value: 10,
+  },
+  {
+    city: "Delhi",
+    absolute_value: 60,
+    relative_value: 20,
+  },
+  {
+    city: "Mumbai",
+    absolute_value: 55,
+    relative_value: 30,
+  },
+  {
+    city: "Chennai",
+    absolute_value: 30,
+    relative_value: 40,
+  },
+  {
+    city: "Kolkata",
+    absolute_value: 42,
+    relative_value: 50,
+  },
+  {
+    city: "Hyderabad",
+    absolute_value: 38.9,
+    relative_value: 60,
+  },
+];
+
 export default function Home() {
   return (
     <div className="relative">
@@ -22,12 +55,14 @@ export default function Home() {
             </Button>
           </div>
           <div className="flex max-w-[calc(100vw-52px)] overflow-x-auto gap-3 p-2 city_cards">
-            <CityCard />
-            <CityCard />
-            <CityCard />
-            <CityCard />
-            <CityCard />
-            <CityCard />
+            {cityCardData.map((cityData, idx) => (
+              <CityCard
+                key={idx}
+                city={cityData.city}
+                absolute_value={cityData.absolute_value}
+                relative_value={cityData.relative_value}
+              />
+            ))}
           </div>
         </div>
       </div>

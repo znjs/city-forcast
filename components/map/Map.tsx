@@ -11,6 +11,7 @@ import {
   Marker,
   Popup,
   ZoomControl,
+  useMap,
 } from "react-leaflet";
 
 export default function Map() {
@@ -35,14 +36,34 @@ export default function Map() {
     popupAnchor: [0, -20],
   });
 
+  function SmoothZoom() {
+    const map = useMap();
+
+    useEffect(() => {
+      map.setZoom(8, { animate: true, duration: 2 });
+      map.panInsideBounds(
+        [
+          [12.9716, 77.5946],
+          [12.9165, 79.1325],
+        ],
+        {
+          animate: true,
+          duration: 3,
+        }
+      );
+    }, [map]);
+
+    return null;
+  }
+
   return (
     <>
       <MapContainer
         ref={map}
-        center={[13.4, 77.5946]}
-        zoom={8}
+        // center={[28.7041, 77.1025]}
+        center={[0, 0]}
+        zoom={13}
         zoomControl={false}
-        scrollWheelZoom={false}
         className="h-[calc(100vh-64px)] w-full"
       >
         <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
@@ -86,6 +107,7 @@ export default function Map() {
           </Popup>
         </Marker>
         <ZoomControl position="bottomleft" />
+        <SmoothZoom />
       </MapContainer>
     </>
   );
