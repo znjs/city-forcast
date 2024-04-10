@@ -1,7 +1,6 @@
 "use client";
 
-// ignore ts check in this file
-
+import { memo } from "react";
 import "leaflet/dist/leaflet.css";
 import { useEffect, useRef } from "react";
 import L from "leaflet";
@@ -14,7 +13,9 @@ import {
   useMap,
 } from "react-leaflet";
 
-export default function Map() {
+export default memo(Map);
+
+function Map() {
   const map = useRef(null);
   const markerRef1 = useRef(null);
   const markerRef2 = useRef(null);
