@@ -89,11 +89,11 @@ function StackItem({ id }: { id: number }) {
           <div className="flex gap-2">
             <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
               <ArrowUp size={10} />{" "}
-              <span className="uppercase text-xs">F'cast stab.</span>
+              <span className="uppercase text-xs">F&apos;cast stab.</span>
             </Badge>
             <Badge className="bg-white text-black rounded-sm hover:text-black hover:bg-white">
               <ArrowUp size={10} />{" "}
-              <span className="uppercase text-xs">F'cast stab.</span>
+              <span className="uppercase text-xs">F&apos;cast stab.</span>
             </Badge>
           </div>
           <p>Sample Stack</p>

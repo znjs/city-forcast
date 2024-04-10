@@ -1,9 +1,13 @@
 "use client";
 
 import { CityCard } from "@/components/CityCard";
-import { Map } from "@/components/map/Map";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
+import dynamic from "next/dynamic";
+
+const MapWithNoSSR = dynamic(() => import("../components/map/Map"), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
@@ -27,7 +31,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <Map />
+      <MapWithNoSSR />
     </div>
   );
 }

@@ -13,7 +13,7 @@ import {
   ZoomControl,
 } from "react-leaflet";
 
-function Map() {
+export default function Map() {
   const map = useRef(null);
   const markerRef1 = useRef(null);
   const markerRef2 = useRef(null);
@@ -36,53 +36,57 @@ function Map() {
   });
 
   return (
-    <MapContainer
-      ref={map}
-      center={[13.4, 77.5946]}
-      zoom={8}
-      zoomControl={false}
-      scrollWheelZoom={false}
-      className="h-[calc(100vh-64px)] w-full"
-    >
-      <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
-      <Marker
-        eventHandlers={{
-          mouseover: () => {
-            markerRef1.current && markerRef1.current?.openPopup();
-          },
-          mouseout: () => {
-            markerRef1.current && markerRef1.current?.closePopup();
-          },
-        }}
-        icon={icon1}
-        ref={markerRef1}
-        position={[12.9716, 77.5946]}
+    <>
+      <MapContainer
+        ref={map}
+        center={[13.4, 77.5946]}
+        zoom={8}
+        zoomControl={false}
+        scrollWheelZoom={false}
+        className="h-[calc(100vh-64px)] w-full"
       >
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-      <Marker
-        eventHandlers={{
-          mouseover: () => {
-            markerRef2.current && markerRef2.current?.openPopup();
-          },
-          mouseout: () => {
-            markerRef2.current && markerRef2.current?.closePopup();
-          },
-        }}
-        ref={markerRef2}
-        riseOnHover={true}
-        icon={icon2}
-        position={[12.9165, 79.1325]}
-      >
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-      <ZoomControl position="bottomleft" />
-    </MapContainer>
+        <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
+        <Marker
+          eventHandlers={{
+            mouseover: (ele) => {
+              // @ts-ignore
+              markerRef1.current && markerRef1.current?.openPopup();
+            },
+            mouseout: () => {
+              // @ts-ignore
+              markerRef1.current && markerRef1.current?.closePopup();
+            },
+          }}
+          icon={icon1}
+          ref={markerRef1}
+          position={[12.9716, 77.5946]}
+        >
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+        <Marker
+          eventHandlers={{
+            mouseover: () => {
+              // @ts-ignore
+              markerRef2.current && markerRef2.current?.openPopup();
+            },
+            mouseout: () => {
+              // @ts-ignore
+              markerRef2.current && markerRef2.current?.closePopup();
+            },
+          }}
+          ref={markerRef2}
+          riseOnHover={true}
+          icon={icon2}
+          position={[12.9165, 79.1325]}
+        >
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+        <ZoomControl position="bottomleft" />
+      </MapContainer>
+    </>
   );
 }
-
-export { Map };
